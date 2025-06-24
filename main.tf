@@ -1,0 +1,26 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "3.105.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+  use_oidc = true
+}
+
+
+terraform {
+  backend "azurerm" {
+    storage_account_name = "or4ikstor"
+    container_name       = "tfstate"
+    key                  = "./terraform_task_5_state/.terraform/terraform.tfstate"
+    resource_group_name  = "tfstate"
+    use_oidc = true
+  }
+}
+
+
