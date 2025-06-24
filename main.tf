@@ -5,22 +5,19 @@ terraform {
       version = "3.105.0"
     }
   }
+
+  backend "azurerm" {
+    storage_account_name = "or4ikstor"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate'"
+    resource_group_name  = "tfstate"
+    use_oidc = true
+  }
 }
 
 provider "azurerm" {
   features {}
   use_oidc = true
-}
-
-
-terraform {
-  backend "azurerm" {
-    storage_account_name = "or4ikstor"
-    container_name       = "tfstate"
-    key                  = "./terraform_task_5_state/.terraform/terraform.tfstate"
-    resource_group_name  = "tfstate"
-    use_oidc = true
-  }
 }
 
 
