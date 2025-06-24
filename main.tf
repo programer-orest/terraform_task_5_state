@@ -11,7 +11,7 @@ terraform {
     container_name       = "tfstate"
     key                  = "terraform.tfstate'"
     resource_group_name  = "tfstate"
-    use_oidc = true
+    use_oidc             = true
   }
 }
 
@@ -19,6 +19,7 @@ provider "azurerm" {
   features {}
   use_oidc = true
 }
+
 
 
 
